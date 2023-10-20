@@ -9,4 +9,4 @@ This project includes a web application similar to Spotify, developed using HTML
 - **Search Engine:** Use the search box at the top of the page to search for and play your desired songs.
 - **API Loading:** While fetching data from the API, a loading indicator is displayed.
 
- [](/screenshot.gif)
+ ![](/screenshot.gif)
