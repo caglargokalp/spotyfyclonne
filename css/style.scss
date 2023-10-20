@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap');
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: "poppins";
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 30px 15px;
+
+  #logo_notext {
+    display: none;
+    width: 40px;
+  }
+
+  @media (max-width: 870px) {
+    #logo {
+      display: none;
+    }
+    #logo_notext {
+      display: block;
+    }
+  }
+
+  img {
+    max-width: 130px;
+    object-fit: contain;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      padding: 20px 10px;
+      display: flex;
+      gap: 5px;
+      border-radius: 10px;
+      white-space: nowrap;
+      transition: all 0.3;
+
+      @media (max-width: 870px) {
+        span {
+          display: none;
+        }
+        i {
+          font-size: 24px;
+        }
+      }
+
+      &:hover {
+        background: rgb(32, 32, 32);
+      }
+    }
+  }
+}
+
+//ana içerik > üst kısın
+
+main {
+  width: 100%;
+}
+
+main header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 20px;
+
+  @media (max-width: 870px) {
+    justify-content: center;
+  }
+
+  form {
+    display: flex;
+    padding: 6px 12px;
+    input {
+      padding: 6px 12px;
+      border-radius: 5px 0 0 5px;
+      border: none;
+    }
+    button {
+      background: #1db954;
+      padding: 0 25px;
+      border: none;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      color: white;
+
+      &:hover {
+        background: #0ff15e;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+
+    list-style: none;
+    align-items: center;
+
+    @media (max-width: 870px) {
+      display: none;
+    }
+
+    li {
+      padding: 5px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 300ms;
+
+      &:hover {
+        background: rgb(60, 60, 60);
+      }
+    }
+  }
+}
+
+main .songs {
+  background: rgb(42, 42, 42);
+  height: 100%;
+
+}
+main .songs #title{
+  padding: 20px;
+}
+
+main #list {
+  padding: 0 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  height: 80vh;
+  overflow-y: auto ;
+
+  &::-webkit-scrollbar{
+    background: black;
+    width: 7px;
+  }
+  &::-webkit-scrollbar-thumb{  
+  background: green;
+  width: 1px;
+}
+  .card {
+    width: 200px;
+    max-height: 300px;
+    padding: 15px;
+    margin-bottom: 65px;
+    background: #181818;
+    border-radius: 6px;
+    cursor: pointer;
+    
+    &:hover .play {
+      opacity: 1;
+      bottom: 20px;
+    }
+  }
+
+  figure {
+    position: relative;
+    img {
+      width: 100%;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+    .play {
+      position: absolute;
+      bottom: -20px;
+      right: 10px;
+      background: #1db953;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      font-size: 23px;
+      //görünmez olucak
+      opacity: 0;
+      transition: all 0.3s;
+
+      &:hover {
+        background: #0e9c3f;
+        scale: 0.9;
+      }
+    }
+  }
+  h4 {
+    margin-bottom: 6px;
+  }
+}
+
+//oynatılan şarkı barı
+
+.playing {
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 40px;
+  width: 100%;
+  background-color: #70dd46;
+  background-image: linear-gradient(
+    90deg,
+    #70dd46 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  text-shadow: 0 0 10px rgba($color: #000000, $alpha: 1);
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+    }
+  }
+}
+
+.animate{
+  animation: turn 2s linear infinite;
+}
+
+@keyframes turn{
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+//loader
+
+.loader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loader-bar {
+  height: 25px;
+  width: 6px;
+  margin: 0 3px;
+  border-radius: 20px;
+  animation: loader 2s ease-in-out infinite;
+}
+
+.bar-1 {
+  background: linear-gradient(to right, #00e6e6, #00ccff, #0099ff, #0066ff);
+  animation-delay: 0s;
+  box-shadow: 0px 0px 15px 3px #00e6e6;
+}
+
+.bar-2 {
+  background: linear-gradient(to right, #00ccff, #0099ff, #0066ff, #00e6e6);
+  animation-delay: 0.1s;
+  box-shadow: 0px 0px 15px 3px #00ccff;
+}
+
+.bar-3 {
+  background: linear-gradient(to right, #0099ff, #0066ff, #00e6e6, #00ccff);
+  animation-delay: 0.2s;
+  box-shadow: 0px 0px 15px 3px #0099ff;
+}
+
+.bar-4 {
+  background: linear-gradient(to right, #0066ff, #00e6e6, #00ccff, #0099ff);
+  animation-delay: 0.3s;
+  box-shadow: 0px 0px 15px 3px #0066ff;
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(2);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+

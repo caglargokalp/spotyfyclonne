@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spotify</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <aside>
+      <img id="logo" src="/images/spo.png" alt="" />
+      <img id="logo_notext" src="/images/no-text.png" alt="" />
+
+      <nav>
+        <a href="/">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Ana Sayfa</span>
+        </a>
+        <a href="#">
+          <i class="bi bi-search"></i>
+          <span>Arama</span>
+        </a>
+        <a href="#">
+          <i class="bi bi-bookmark-star"></i>
+          <span>Kütüphanem</span>
+        </a>
+        <a href="#">
+          <i class="bi bi-music-note-list"></i>
+          <span>Çalma Listeleri</span>
+        </a>
+        <a href="#">
+          <i class="bi bi-suit-heart-fill"></i>
+          <span>Beğenilen Şarkılar</span>
+        </a>
+      </nav>
+    </aside>
+    <!-- ana içerik -->
+    <main>
+      <header>
+        <form id="search-form">
+          <input  type="search" placeholder="Şarkı ismi" />
+          <button><i class="bi bi-search"></i></button>
+        </form>
+        <ul>
+          <li>Premium</li>
+          <li>Destek</li>
+          <li>İndirimler</li>
+          <li>Kayıt</li>
+        </ul>
+      </header>
+
+      <div class="songs">
+        <h1  id="title">Türkide En Popüler</h1>
+
+        <div id="list"></div>
+      </div>
+    </main>
+
+    <!-- aktif şarkı barı -->
+    <div class="playing">
+
+      
+    </div>
+
+    /<!-- /js bağlantı -->
+
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>
